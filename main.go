@@ -19,7 +19,13 @@ func main() {
 	url := os.Args[1]
 
 	// サイトのHTMLを取得
-	doc, err := goquery.NewDocument(url)
+	res, err := http.Get(url)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		fmt.Println("Error fetching the URL:", err)
 		return
