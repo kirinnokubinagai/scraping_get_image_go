@@ -21,6 +21,7 @@ func main() {
 	// サイトのHTMLを取得
 	res, err := http.Get(url)
 	if err != nil {
+		fmt.Println("Error Not Found URL:", err)
 		return
 	}
 	defer res.Body.Close()
