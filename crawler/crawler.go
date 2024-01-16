@@ -41,7 +41,7 @@ func CrawlSite(urlStr string) {
 
 	fmt.Println("Visited:", urlStr)
 
-	downloadDir := "./downloaded_images/"
+	downloadDir := "./output_images/"
 	err = os.MkdirAll(downloadDir, os.ModePerm)
 	if err != nil {
 		fmt.Println("Error creating download directory:", err)
